@@ -65,7 +65,6 @@ CASE5.jpg
 CASE6.jpg
 CASE7.jpg
 CASE8.jpg
-pan_pp_target.py
 test.jpg
 ```
 
