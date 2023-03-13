@@ -19,7 +19,8 @@ according to each input measured through functions such as time.time()
 
 def meanProcessingTime(dir):
     org = os.getcwd()
-    if 'time.csv' in os.listdir(dir):
+    os.chdir(dir)
+    if 'time.csv' in os.listdir():
         os.remove('./time.csv')
 
     for i in os.listdir():
