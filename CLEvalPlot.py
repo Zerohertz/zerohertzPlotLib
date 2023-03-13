@@ -83,6 +83,19 @@ def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman',
     plt.ylabel('Time [ms]')
     plt.legend(loc='upper right', bbox_to_anchor=(1.21, 1.02))
     os.chdir(org)
+    MetName = ['HMean', 'Precision', 'Recall']
+    for i in range(3):
+        print('='*20, '\t', MetName[i], '\t', '='*20)
+        print(Ver[0], ': ', Met[i][0], '[%]')
+        print(Ver[-1], ': ', Met[i][-1], '[%]')
+        print(Met[i][-1] - Met[i][0], '[%p]')
+        print((Met[i][-1] - Met[i][0]) / Met[i][0] * 100, '[%]')
+    print('='*20, '\tTime\t', '='*20)
+    print(Ver[0], ': ', Time[5][0], '[ms]')
+    print(Ver[-1], ': ', Time[5][-1], '[ms]')
+    print(Time[5][-1] - Time[5][0], '[ms]')
+    print((Time[5][-1] - Time[5][0]) / Time[5][0] * 100, '[%]')
+    print('='*20, '\tEnd\t', '='*20)
     if figname != '':
         print("Saving...")
         plt.savefig(figname + '.png', dpi=300, bbox_inches='tight', pad_inches=0.3, transparent=False)
