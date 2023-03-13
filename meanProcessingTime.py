@@ -2,22 +2,22 @@ import os
 import csv
 import pandas as pd
 
-'''
-A function that averages the processing time of the model
-according to each input measured through functions such as time.time()
-
-[sec] -> [msec]
-
-├── Model1.csv
-├── Model2.csv
-├── Model3.csv
-├── ...
-└── ModelN.csv
-
--> time.csv
-'''
 
 def meanProcessingTime(dir):
+    '''
+    A function that averages the processing time of the model
+    according to each input measured through functions such as time.time()
+
+    [sec] -> [msec]
+
+    ├── Model1.csv
+    ├── Model2.csv
+    ├── Model3.csv
+    ├── ...
+    └── ModelN.csv
+
+    -> time.csv
+    '''
     org = os.getcwd()
     os.chdir(dir)
     if 'time.csv' in os.listdir():
