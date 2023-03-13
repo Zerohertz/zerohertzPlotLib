@@ -9,10 +9,9 @@ Visualization of HMean, Precision, Recall calculated through CLEval (https://git
 and processing time calculated through zerohertzPlotLib.meanProcessingTime()
 '''
 
-plt.rcParams['font.family'] = 'Times New Roman'
-plt.rcParams['font.size'] = 20
-
-def CLEvalPlot(time_dir, figname=''):
+def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman'):
+    plt.rcParams['font.size'] = fontsize
+    plt.rcParams['font.family'] = fontfamily
     org = os.getcwd()
     os.chdir(time_dir)
     data = pd.read_csv('./time.csv', header=None)
