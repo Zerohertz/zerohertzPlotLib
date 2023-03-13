@@ -4,13 +4,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-'''
-Visualization of HMean, Precision, Recall calculated through CLEval (https://github.com/clovaai/CLEval)
-and processing time calculated through zerohertzPlotLib.meanProcessingTime()
-'''
-
 def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman',
                yl=[95, 97.5]):
+    '''
+    Visualization of HMean, Precision, Recall calculated through CLEval (https://github.com/clovaai/CLEval)
+    and processing time calculated through zerohertzPlotLib.meanProcessingTime()
+    '''
     plt.rcParams['font.size'] = fontsize
     plt.rcParams['font.family'] = fontfamily
     org = os.getcwd()
@@ -48,12 +47,14 @@ def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman',
     if ',' in x:
         for i in list(map(int, x.split(','))):
             if '-----' in opt[i]:
+                os.chdir(org)
                 return
             else:
                 tmp.append(Ver.index(opt[i]))
                 opt[i] += '\t-----X'
                 cnt -= 1
     else:
+        os.chdir(org)
         return
     print("Plotting...")
     N = len(tmp)
