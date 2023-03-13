@@ -1,2 +1,2 @@
-<div align=center> <h2> :camera_flash: 
-Plotting Library of Computer Vision Model Results :camera_flash: </h2> </div>
+<div align=center> <h2> :art: 
+Zerohertz's Library for Visualization of Various Results :art: </h2> </div>
