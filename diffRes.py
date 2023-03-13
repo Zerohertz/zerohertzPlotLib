@@ -8,7 +8,8 @@ def printRes(output_dir):
     '''
     org = os.getcwd()
     os.chdir(output_dir)
-    for i in os.listdir():
+    tmp = os.listdir()
+    for i in sorted(tmp):
         if not '.txt' in i:
             print(i)
     os.chdir(org)
