@@ -9,7 +9,8 @@ Visualization of HMean, Precision, Recall calculated through CLEval (https://git
 and processing time calculated through zerohertzPlotLib.meanProcessingTime()
 '''
 
-def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman'):
+def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman',
+               yl=[95, 97.5]):
     plt.rcParams['font.size'] = fontsize
     plt.rcParams['font.family'] = fontfamily
     org = os.getcwd()
@@ -39,21 +40,21 @@ def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman'):
     opt = []
     for v in Ver:
         opt.append(v)
-    while True:
-        print('='*20)
-        for i, j in enumerate(opt):
-            print(i, j)
-        print('='*20)
-        if cnt <= 0:
-            break
-        x = input()
-        if x == '':
-            break
-        else:
-            x = int(x)
-            tmp.append(Ver.index(opt[x]))
-            opt[x] += '\t-----X'
-            cnt -= 1
+    print('='*20)
+    for i, j in enumerate(opt):
+        print(i, j)
+    print('='*20)
+    x = input()
+    if ',' in x:
+        for i in list(map(int, x.split(','))):
+            if '-----' in opt[i]:
+                return
+            else:
+                tmp.append(Ver.index(opt[i]))
+                opt[i] += '\t-----X'
+                cnt -= 1
+    else:
+        return
     print("Plotting...")
     N = len(tmp)
     Met, Time = np.array(Met), np.array(Time)
@@ -68,15 +69,15 @@ def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman'):
     plt.bar(idx, Met[1], bar_width, label='Precision', color='red', zorder=10)
     plt.bar(idx + bar_width, Met[2], bar_width, label='Recall', color='blue', zorder=10)
     plt.xticks(idx, Ver, rotation=0)
-    plt.xlim([-N, 4*(N - 1) + N])
+    plt.xlim([-N/2, 4*(N - 1) + N/2])
     plt.ylabel('[%]')
-    plt.ylim([95, 97.25])
+    plt.ylim(yl)
     plt.legend(loc='upper right', bbox_to_anchor=(1.21, 1.02))
     plt.subplot(2,1,2)
     plt.grid(True)
     plt.bar(idx, Time[5], label='Total\nprocessing\ntime', color='olive', zorder=10)
     plt.xticks(idx, Ver, rotation=0)
-    plt.xlim([-N, 4*(N - 1) + N])
+    plt.xlim([-N/2, 4*(N - 1) + N/2])
     plt.ylim([0, 170])
     plt.ylabel('Time [ms]')
     plt.legend(loc='upper right', bbox_to_anchor=(1.21, 1.02))
