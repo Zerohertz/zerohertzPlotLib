@@ -7,6 +7,8 @@ Zerohertz's Library for Visualization of Various Results :art: </h2> </div>
 import zerohertzPlotLib as zpl
 ```
 
+---
+
 ### Mean Processing Time
 
 > In
@@ -14,6 +16,8 @@ import zerohertzPlotLib as zpl
 ```python
 zpl.meanProcessingTime('../PANPP/results/time')
 ```
+
+---
 
 ### CLEval Plot
 
@@ -37,7 +41,10 @@ zpl.CLEvalPlot('../PANPP/results/time', fontsize=15)
  4,1,3,2,0
 Plotting...
 ```
+
 ![Out](https://user-images.githubusercontent.com/42334717/224615456-de09a7a8-b5df-47fa-8c50-20f4a0368d7c.png)
+
+---
 
 ### [Print Res](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/diffRes.py#L5)
 
@@ -61,6 +68,8 @@ CASE8.jpg
 pan_pp_target.py
 test.jpg
 ```
+
+---
 
 ### [Diff Res](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/diffRes.py#L17)
 
