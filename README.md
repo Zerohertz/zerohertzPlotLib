@@ -71,7 +71,7 @@ test.jpg
 
 ---
 
-### [Diff Res](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/diffRes.py#L17)
+### [Diff Res](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/diffRes.py#L18)
 
 > In
 
