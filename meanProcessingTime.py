@@ -17,8 +17,8 @@ according to each input measured through functions such as time.time()
 -> time.csv
 '''
 
-def meanProcessingTime():
-    if 'time.csv' in os.listdir():
+def meanProcessingTime(dir):
+    if 'time.csv' in os.listdir(dir):
         os.remove('./time.csv')
 
     for i in os.listdir():
