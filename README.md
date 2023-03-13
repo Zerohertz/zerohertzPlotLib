@@ -9,7 +9,7 @@ import zerohertzPlotLib as zpl
 
 ---
 
-### Mean Processing Time
+### [Mean Processing Time](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/meanProcessingTime.py#L6)
 
 > In
 
@@ -19,7 +19,7 @@ zpl.meanProcessingTime('../PANPP/results/time')
 
 ---
 
-### CLEval Plot
+### [CLEval Plot](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/CLEvalPlot.py#L7)
 
 > In
 
