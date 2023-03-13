@@ -9,10 +9,13 @@ def printRes(output_dir):
     org = os.getcwd()
     os.chdir(output_dir)
     tmp = os.listdir()
+    res = []
     for i in sorted(tmp):
-        if not '.txt' in i:
+        if ('.jpg' in i) or ('.jpeg' in i) or ('.png' in i) or ('.tif' in i):
             print(i)
+            res.append(i)
     os.chdir(org)
+    return res
 
 
 def diffRes(output_dir, img, cut, Ver, figname='',
