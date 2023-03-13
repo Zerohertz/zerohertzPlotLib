@@ -36,7 +36,10 @@ def diffRes(output_dir, img, cut, Ver, figname='',
             else:
                 plt.subplot(2,2,i+1)
             tmp = plt.imread(output_dir + '/' + j + '/' + img)
-            plt.imshow(tmp[cut[0]:cut[0]+cut[2],cut[1]:cut[1]+cut[3],:])
+            if cut == []:
+                plt.imshow(tmp)
+            else:
+                plt.imshow(tmp[cut[0]:cut[0]+cut[2],cut[1]:cut[1]+cut[3],:])
             plt.title(j)
             plt.axis('off')
         if figname != '':
