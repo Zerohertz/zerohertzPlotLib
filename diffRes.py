@@ -44,3 +44,4 @@ def diffRes(output_dir, img, cut, Ver, figname='',
             plt.axis('off')
         if figname != '':
             plt.savefig(figname + '.png', dpi=300, bbox_inches='tight', pad_inches=0.3, transparent=False)
+            plt.close('all')
