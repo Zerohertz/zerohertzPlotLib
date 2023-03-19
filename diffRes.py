@@ -19,7 +19,7 @@ def printRes(output_dir):
 
 
 def diffRes(output_dir, img, cut, Ver, figname='',
-            fontsize=20, fontfamily='Times New Roman'):
+            fontsize=20, fontfamily='Times New Roman', res=100):
     '''
     A function for comparing results of computer vision models
     '''
@@ -40,8 +40,8 @@ def diffRes(output_dir, img, cut, Ver, figname='',
                 plt.imshow(tmp)
             else:
                 plt.imshow(tmp[cut[0]:cut[0]+cut[2],cut[1]:cut[1]+cut[3],:])
-            plt.title(j)
+            plt.title(j.replace('_', ' '))
             plt.axis('off')
         if figname != '':
-            plt.savefig(figname + '.png', dpi=300, bbox_inches='tight', pad_inches=0.3, transparent=False)
+            plt.savefig(figname + '.png', dpi=res, bbox_inches='tight', pad_inches=0.3, transparent=False)
             plt.close('all')
