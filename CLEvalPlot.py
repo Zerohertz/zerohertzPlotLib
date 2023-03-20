@@ -22,7 +22,7 @@ def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman',
     met = {}
     Met = [[0 for _ in range(N)] for _ in range(3)]
     for i in range(N):
-        Ver[i] = K[i]
+        Ver[i] = K[i].replace('_', ' ')
         for j in range(6):
             Time[j][i] = data[j+1][i]
     cnt = 0
