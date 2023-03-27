@@ -23,13 +23,11 @@ def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman',
     Met = [[0 for _ in range(N)] for _ in range(3)]
     for i in range(N):
         Time[0][i] = data[1][i]
-    cnt = 0
     for i in range(N):
         try:
             data = pd.read_csv('../evaluation/' + K[i] + '.csv', header=None)
             for j in range(3):
                 Met[j][i] = data[j+1][0]
-            cnt += 1
         except:
             Ver[i] += '\t-----X'
             continue
@@ -52,7 +50,6 @@ def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman',
             else:
                 tmp.append(Ver.index(opt[i]))
                 opt[i] += '\t-----X'
-                cnt -= 1
     else:
         os.chdir(org)
         return
