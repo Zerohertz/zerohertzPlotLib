@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman',
-               yl=[95, 97.5]):
+               yl=[96, 98.8]):
     '''
     Visualization of HMean, Precision, Recall calculated through CLEval (https://github.com/clovaai/CLEval)
     and processing time calculated through zerohertzPlotLib.meanProcessingTime()
@@ -18,23 +18,23 @@ def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman',
     K = data[0][:]
     N = len(K)
     Ver = ['' for _ in range(N)]
-    Time = [[0 for _ in range(N)] for _ in range(6)]
+    Time = [[0 for _ in range(N)] for _ in range(1)]
     met = {}
     Met = [[0 for _ in range(N)] for _ in range(3)]
     for i in range(N):
-        Ver[i] = K[i].replace('_', ' ')
-        for j in range(6):
-            Time[j][i] = data[j+1][i]
+        Time[0][i] = data[1][i]
     cnt = 0
     for i in range(N):
         try:
-            data = pd.read_csv('../evaluation/' + Ver[i] + '.csv', header=None)        
+            data = pd.read_csv('../evaluation/' + K[i] + '.csv', header=None)
             for j in range(3):
                 Met[j][i] = data[j+1][0]
             cnt += 1
         except:
             Ver[i] += '\t-----X'
             continue
+    for i in range(N):
+        Ver[i] = K[i].replace('_', ' ')
     tmp = []
     opt = []
     for v in Ver:
@@ -70,15 +70,15 @@ def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman',
     plt.bar(idx, Met[1], bar_width, label='Precision', color='red', zorder=10)
     plt.bar(idx + bar_width, Met[2], bar_width, label='Recall', color='blue', zorder=10)
     plt.xticks(idx, Ver, rotation=0)
-    plt.xlim([-N/2, 4*(N - 1) + N/2])
+    plt.xlim([-N/1.2, 4*(N - 1) + N/1.2])
     plt.ylabel('[%]')
     plt.ylim(yl)
     plt.legend(loc='upper right', bbox_to_anchor=(1.21, 1.02))
     plt.subplot(2,1,2)
     plt.grid(True)
-    plt.bar(idx, Time[5], label='Total\nprocessing\ntime', color='olive', zorder=10)
+    plt.bar(idx, Time[0], label='Total\nprocessing\ntime', color='olive', zorder=10)
     plt.xticks(idx, Ver, rotation=0)
-    plt.xlim([-N/2, 4*(N - 1) + N/2])
+    plt.xlim([-N/1.2, 4*(N - 1) + N/1.2])
     plt.ylim([0, 170])
     plt.ylabel('Time [ms]')
     plt.legend(loc='upper right', bbox_to_anchor=(1.21, 1.02))
@@ -90,10 +90,10 @@ def CLEvalPlot(time_dir, figname='', fontsize=20, fontfamily='Times New Roman',
         res[i].append('{:.3f} [%]'.format(Met[i][-1]))
         res[i].append('{:.3f} [%p]'.format(Met[i][-1] - Met[i][0], 2))
         res[i].append('{:.3f} [%]'.format((Met[i][-1] - Met[i][0]) / Met[i][0] * 100, 2))
-    res[3].append('{:.3f} [ms]'.format(Time[5][0]))
-    res[3].append('{:.3f} [ms]'.format(Time[5][-1]))
-    res[3].append('{:.3f} [ms]'.format(Time[5][-1] - Time[5][0]))
-    res[3].append('{:.3f} [%]'.format((Time[5][-1] - Time[5][0]) / Time[5][0] * 100))
+    res[3].append('{:.3f} [ms]'.format(Time[0][0]))
+    res[3].append('{:.3f} [ms]'.format(Time[0][-1]))
+    res[3].append('{:.3f} [ms]'.format(Time[0][-1] - Time[0][0]))
+    res[3].append('{:.3f} [%]'.format((Time[0][-1] - Time[0][0]) / Time[0][0] * 100))
     print('||HMean|Precision|Recall|Time|')
     print('|:-:|:-:|:-:|:-:|:-:|')
     col = [Ver[0], Ver[-1], 'Difference', 'Percentage']
