@@ -1,15 +1,22 @@
 <div align=center> <h2> :art: 
 Zerohertz's Library for Visualization of Various Results :art: </h2> </div>
 
-### Import
+<details>
+<summary align="center">
+<h3 align = "center">
+<a href="https://github.com/Zerohertz/PANPP">
+    :memo: PAN++ :memo:
+</a>
+</h3>
+</summary>
+    
+#### Import
 
 ```python
-import zerohertzPlotLib as zpl
+import zerohertzPlotLib.PANPP as zpl
 ```
 
----
-
-### [Mean Processing Time](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/meanProcessingTime.py#L6)
+#### [Mean Processing Time](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/PANPP/meanProcessingTime.py#L6)
 
 > In
 
@@ -17,54 +24,47 @@ import zerohertzPlotLib as zpl
 zpl.meanProcessingTime('../PANPP/results/time')
 ```
 
----
-
-### [CLEval Plot](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/CLEvalPlot.py#L7)
+#### [CLEval Plot](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/PANPP/CLEvalPlot.py#L7)
 
 > In
 
 ```python
-zpl.CLEvalPlot('../PANPP/results/time', fontsize=15)
+zpl.CLEvalPlot('../PANPP/results/time', 'test')
 ```
 
 > Out
 
 ```python
 ====================
-0 FPEMs_4_400ep
-1 FPEMs_4_180ep
-2 FPEMs_4_300ep
-3 FPEMs_4_200ep
-4 FPEMs_4_20ep
-5 TwinReader
+0 Improved PANPP
+1 FPEMs 4 200ep
 ====================
-4,1,3,2,0
+0,1
 Plotting...
 ||HMean|Precision|Recall|Time|
 |:-:|:-:|:-:|:-:|:-:|
-|FPEMs_4_20ep|96.429 [%]|96.092 [%]|96.768 [%]|122.268 [ms]|
-|FPEMs_4_400ep|97.042 [%]|97.243 [%]|96.842 [%]|122.927 [ms]|
-|Difference|0.613 [%p]|1.151 [%p]|0.074 [%p]|0.659 [ms]|
-|Percentage|0.636 [%]|1.197 [%]|0.076 [%]|0.539 [%]|
+|Improved PANPP|97.395 [%]|98.494 [%]|96.321 [%]|120.887 [ms]|
+|FPEMs 4 200ep|97.418 [%]|98.705 [%]|96.164 [%]|132.897 [ms]|
+|Difference|0.023 [%p]|0.211 [%p]|-0.157 [%p]|12.010 [ms]|
+|Percentage|0.023 [%]|0.214 [%]|-0.163 [%]|9.935 [%]|
+Saving...
 ```
 
 ||HMean|Precision|Recall|Time|
 |:-:|:-:|:-:|:-:|:-:|
-|FPEMs_4_20ep|96.429 [%]|96.092 [%]|96.768 [%]|122.268 [ms]|
-|FPEMs_4_400ep|97.042 [%]|97.243 [%]|96.842 [%]|122.927 [ms]|
-|Difference|0.613 [%p]|1.151 [%p]|0.074 [%p]|0.659 [ms]|
-|Percentage|0.636 [%]|1.197 [%]|0.076 [%]|0.539 [%]|
+|Improved PANPP|97.395 [%]|98.494 [%]|96.321 [%]|120.887 [ms]|
+|FPEMs 4 200ep|97.418 [%]|98.705 [%]|96.164 [%]|132.897 [ms]|
+|Difference|0.023 [%p]|0.211 [%p]|-0.157 [%p]|12.010 [ms]|
+|Percentage|0.023 [%]|0.214 [%]|-0.163 [%]|9.935 [%]|
 
-![Out](https://user-images.githubusercontent.com/42334717/224615456-de09a7a8-b5df-47fa-8c50-20f4a0368d7c.png)
+![Out](https://user-images.githubusercontent.com/42334717/227838021-aaa09808-2592-46e9-bcaa-0cf07d596e5f.png)
 
----
-
-### [Print Res](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/diffRes.py#L5)
+#### [Print Res](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/PANPP/diffRes.py#L5)
 
 > In
 
 ```python
-zpl.printRes('../PANPP/outputs/target/FPEMs_4_400ep')
+zpl.printRes('../PANPP/outputs/target/Improved_PANPP')
 ```
 
 > Out
@@ -81,18 +81,17 @@ CASE8.jpg
 test.jpg
 ```
 
----
-
-### [Diff Res](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/diffRes.py#L21)
+#### [Diff Res](https://github.com/Zerohertz/zerohertzPlotLib/blob/main/PANPP/diffRes.py#L21)
 
 > In
 
 ```python
-Ver = ['FPEMs_4_200ep', 'FPEMs_4_400ep']
+Ver = ['Improved_PANPP', 'FPEMs_4_200ep']
 
-zpl.diffRes('../PANPP/outputs/target', 'test.jpg',
-            [0, 0, 2000, 4000], Ver)
+zpl.diffRes('../PANPP/outputs/target', 'test.jpg', [0, 0, 2000, 2000], Ver, 'test')
 ```
 > Out
 
-![Out](https://user-images.githubusercontent.com/42334717/224615383-d4eb46fd-b14f-4812-ad22-7c2a8bb6e6ba.png)
+![out](https://user-images.githubusercontent.com/42334717/227835637-8bb43564-36ad-45c2-acbc-fc2625a3acfc.png)
+
+</details>
