@@ -1,3 +1,4 @@
+import sys
 import os
 import matplotlib.pyplot as plt
 
@@ -18,7 +19,7 @@ def printRes(output_dir):
     return res
 
 
-def diffRes(output_dir, img, cut, Ver, figname='',
+def diffRes(output_dir, img, Ver, cut=[0, 0, sys.maxsize, sys.maxsize], tensor='', figname='',
             fontsize=20, fontfamily='Times New Roman', res=100):
     '''
     A function for comparing results of computer vision models
@@ -36,7 +37,7 @@ def diffRes(output_dir, img, cut, Ver, figname='',
             plt.subplot(3,2,i+1)
         else:
             return
-        tmp = plt.imread(output_dir + '/' + j + '/' + img)
+        tmp = plt.imread(os.path.join(output_dir, j, tensor, img))
         if cut == []:
             plt.imshow(tmp)
         else:
