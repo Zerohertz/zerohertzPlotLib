@@ -1,5 +1,5 @@
-import sys
 import os
+import cv2
 import matplotlib.pyplot as plt
 
 
@@ -19,7 +19,7 @@ def printRes(output_dir):
     return res
 
 
-def diffRes(output_dir, img, Ver, cut=[0, 0, sys.maxsize, sys.maxsize], tensor='', figname='',
+def diffRes(output_dir, img, Ver, cut=[], tensor='', figname='',
             fontsize=20, fontfamily='Times New Roman', res=100):
     '''
     A function for comparing results of computer vision models
@@ -38,6 +38,10 @@ def diffRes(output_dir, img, Ver, cut=[0, 0, sys.maxsize, sys.maxsize], tensor='
         else:
             return
         tmp = plt.imread(os.path.join(output_dir, j, tensor, img))
+        if i == 0:
+            w, h, _ = tmp.shape
+        if tmp.shape[0] != w or tmp.shape[1] != h:
+            tmp = cv2.resize(tmp, (h, w))
         if cut == []:
             plt.imshow(tmp)
         else:
